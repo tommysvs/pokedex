@@ -9,7 +9,8 @@ function App() {
   return (
     <>
       <Header />
-      <CardGrid
+      <main>
+        <CardGrid
         gridItems={[
           (
             <Card 
@@ -52,6 +53,10 @@ function App() {
             />
           )
         ]} />
+      </main>
+      <footer>
+        Tommy Vega 2026 - All rights reserved
+      </footer>
     </>
   )
 }
