@@ -34,6 +34,10 @@ const Catalog = () => {
     }
     return (
         <section className='mx-auto max-w-7xl'>
+            <div className="px-4 pt-6 pb-2 md:px-0">
+                <h1 className="text-3xl font-extrabold tracking-tight text-slate-800">Pokédex</h1>
+                <p className="mt-1 text-sm text-slate-500">Explore your collection of Pokémon.</p>
+            </div>
             <div className="relative">
                 {isFetching && <Loader />}
                 <CardGrid

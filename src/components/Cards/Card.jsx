@@ -6,7 +6,7 @@ const Card = (
     }
 ) => {
     return (
-        <div className="w-72 shrink-0 flex flex-col rounded-3 text-gray-800 shadow-sm">
+        <div className="w-72 shrink-0 flex flex-col rounded-lg text-gray-800 shadow-md">
             {cardHeader}
             {cardBody}
             {cardFooter}
