@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import CardGrid from '../components/Cards/CardGrid';
 import PokemonCard from '../components/Pokemon/PokemonCard';
 import Paginator from '../components/Paginator/Paginator';
@@ -14,6 +14,7 @@ const Catalog = () => {
     const [limit, setLimit] = useState(20);
     const [totalItems, setTotalItems] = useState(0);
     const PokemonServiceInstance = usePokemonService();
+
     useEffect(
         () => {
             if (PokemonServiceInstance) {
@@ -33,12 +34,22 @@ const Catalog = () => {
         return <div>Loading</div>
     }
     return (
-        <section className='mx-auto max-w-7xl'>
-            <div className="px-4 pt-6 pb-2 md:px-0">
-                <h1 className="text-3xl font-extrabold tracking-tight text-slate-800">Pokédex</h1>
-                <p className="mt-1 text-sm text-slate-500">Explore your collection of Pokémon.</p>
+        <section className='mx-auto max-w-7xl px-4 md:px-0'>
+            <div className="relative mt-6 overflow-hidden rounded-3xl border border-slate-600/55 bg-slate-950/82 p-6 shadow-[0_8px_22px_rgba(2,6,23,0.28)] md:p-8">
+                <div className="absolute -left-10 -top-12 h-40 w-40 rounded-full bg-slate-500/25 blur-3xl" />
+                <div className="absolute -right-14 -bottom-14 h-48 w-48 rounded-full bg-slate-400/20 blur-3xl" />
+                <div className="relative">
+                    <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-300">Pokémon Catalog</p>
+                        <h1 className="mt-2 text-4xl font-black tracking-tight text-slate-100 md:text-5xl">Pokédex</h1>
+                        <p className="mt-2 text-sm text-slate-200">Explore the catalog and open any Pokémon in one tap.</p>
+                        <p className="mt-4 text-sm font-semibold text-slate-200">
+                            Page <span className="font-black text-white">{page}</span> · Showing <span className="font-black text-white">{PokemonListData?.length ?? 0}</span> · Total <span className="font-black text-white">{totalItems || '-'}</span>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div className="relative">
+            <div className="relative mt-6">
                 {isFetching && <Loader />}
                 <CardGrid
                     gridItems={PokemonListData?.map(o => {
