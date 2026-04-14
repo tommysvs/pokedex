@@ -1,23 +1,15 @@
 @import "tailwindcss";
 
-:root {
-
-}
-
 html {
   @apply h-full;
 }
 
 body {
-  @apply flex flex-col min-h-screen;
+  @apply flex flex-col min-h-screen overflow-x-hidden bg-slate-50 text-slate-900;
 }
 
 #root {
     @apply flex flex-col min-h-screen;
-}
-
-header {
-  @apply bg-slate-800 text-white font-bold;
 }
 
 main {
